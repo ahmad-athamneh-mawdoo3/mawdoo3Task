@@ -43,5 +43,6 @@ class TaskInstall extends Command
         exec("php artisan vendor:publish --provider='mawdoo3\laravelTask\TaskServiceProvider'");
         $this->line("<info>Publishing:</info> Publishing Configration Done");
         $this->line(PHP_EOL."<info>All Done !!</info>");
+
     }
 }
