@@ -15,20 +15,20 @@
     },
     "autoload": {
         "psr-4": {
-            "mawdoo3\\laravelTask\\": "src/"
+            "mawdoo3\\laravelTask\\": "src/",
         }
     },
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi",
-            "@php artisan vendor:publish --provider='mawdoo3\\laravelTask\\ContactServiceProvider'"
+            "@php artisan vendor:publish --provider='mawdoo3\\laravelTask\\ContactServiceProvider'",
         ]
     },
     "extra": {
         "laravel": {
             "providers": [
-                "mawdoo3\\laravelTask\\ServiceProvider"
+                "mawdoo3\\laravelTask\\ServiceProvider",
             ]
         }
     },
