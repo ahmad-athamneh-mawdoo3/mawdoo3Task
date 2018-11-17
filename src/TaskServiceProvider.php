@@ -3,7 +3,7 @@ namespace mawdoo3\laravelTask;
 
 use Illuminate\Support\ServiceProvider;
 
-class ContactServiceProvider extends ServiceProvider
+class TaskServiceProvider extends ServiceProvider
 {
 
     /**
