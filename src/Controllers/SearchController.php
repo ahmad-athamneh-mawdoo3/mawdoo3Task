@@ -41,6 +41,7 @@ class SearchController extends Controller
             return $data;
 
         }else{
+            dump($response);
             return [];
         }
     }
