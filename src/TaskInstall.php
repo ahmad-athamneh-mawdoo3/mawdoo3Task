@@ -36,16 +36,12 @@ class TaskInstall extends Command
      */
     public function handle()
     {
-
-        echo PHP_EOL;
-        exec("cp __DIR__ /Migration database/migrations/TaskInstall");
-        $this->line(PHP_EOL."<info>Coping:</info> Migration Done");
-
-        \Artisan::call('migrate path=database/migrations/TaskInstall');
-        $this->line(PHP_EOL."<info>Migrating:</info> Migrating DB Done");
-        \Artisan::call("vendor:publish --provider='mawdoo3\laravelTask\TaskServiceProvider'");
-        $this->line(PHP_EOL."<info>Publishing:</info> Publishing Configration Done");
-
+        exec("cp -Rv ". __DIR__."/Migration ".base_path()."/database/migrations/TaskInstall/");
+        $this->line("<info>Coping Migration:</info>  Done");
+        exec("php artisan migrate --path=/database/migrations/TaskInstall");
+        $this->line("<info>Migrating:</info> Migrating to DB Done");
+        exec("php artisan vendor:publish --provider='mawdoo3\laravelTask\TaskServiceProvider'");
+        $this->line("<info>Publishing:</info> Publishing Configration Done");
         $this->line(PHP_EOL."<info>All Done !!</info>");
     }
 }
