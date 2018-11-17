@@ -3,11 +3,11 @@
 
 ## Requirement
 
-- see [laravel Documentation](https://laravel.com/docs/5.7#server-requirements) .
+- Laravel 5.7 (see [laravel Documentation](https://laravel.com/docs/5.7#server-requirements)) .
 - composer ([install Inc](https://getcomposer.org/doc/00-intro.md)).
 - mysql server .
 
-### meet that requirement then just complete this :
+##### meet that requirement then just complete this :
 
 ## installation 
 ##### edit .env file to your DB credentials :
