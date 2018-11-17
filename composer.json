@@ -22,6 +22,10 @@
         "post-package-install": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan vendor:publish --provider='mawdoo3\\laravelTask\\TaskServiceProvider'"
+        ],
+        "post-install-cmd":[
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan vendor:publish --provider='mawdoo3\\laravelTask\\TaskServiceProvider'"
         ]
     },
     "extra": {
