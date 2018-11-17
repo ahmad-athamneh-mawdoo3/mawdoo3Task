@@ -6,7 +6,6 @@
 - Laravel 5.7 (see [laravel Documentation](https://laravel.com/docs/5.7#server-requirements)) .
 - composer ([install Inc](https://getcomposer.org/doc/00-intro.md)).
 - mysql server .
-
 ##### meet that requirement then just complete this :
 
 ## installation 
@@ -21,8 +20,5 @@
 ##### That's it !! :
 -       http://127.0.0.1:8000/search/search
 
-
-
 ## License
-
 This is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
