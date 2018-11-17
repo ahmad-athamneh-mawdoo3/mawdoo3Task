@@ -53,7 +53,6 @@
                         <td><textarea  id="item[{{$k}}][comment]" name="item[{{$k}}][comment]" value="" data-old="" ></textarea></td>
                     </tr>
                     @endforeach
-
                 </tbody>
             </table>
 
