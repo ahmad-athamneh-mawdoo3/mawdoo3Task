@@ -4,13 +4,15 @@ namespace mawdoo3\laravelTask\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use \mawdoo3\laravelTask\Models\SavedResult;
 
 class SearchController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Get Search Result from Google Custom Search
      *
-     * @return \Illuminate\Http\Response
+     * @param  String  $searchWord
+     * @return Array
      */
     public function getSearch($searchWord = '')
     {
@@ -44,22 +46,22 @@ class SearchController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return HTML view and data from getSearch() function
      */
-    public function getSearchView($searchWord = '')
+    public function search($searchWord = '')
     {
 
         return view('task::search', ['searchData' => $this->getSearch($searchWord), 'searchWord' => $searchWord]);
         //
     }
     /**
-     * Show the form for creating a new resource.
+     * Show All saved Results
      *
-     * @return \Illuminate\Http\Response
+     * @return HTML view and data from DB SavedResult Model
      */
-    public function index()
+    public function savedResults()
     {
-        return view('task::saved_results', ['data' => \mawdoo3\laravelTask\Models\SavedResult::all()]);
+        return view('task::saved_results', ['data' => SavedResult::all()]);
         //
     }
     /**
@@ -68,7 +70,7 @@ class SearchController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function setSearch(Request $request)
+    public function save(Request $request)
     {
         $data = $request->all()['item'];
         $filtered = array_filter($data, function ($item) {return isset($item['isSelected']) && $item['isSelected'] == "true";});
@@ -78,8 +80,8 @@ class SearchController extends Controller
             $item['created_at'] = now();
             return $item;
         }, array_values($filtered));
-        \mawdoo3\laravelTask\Models\SavedResult::insert(array_values($filtered));
-        return view('task::saved_results', ['data' => \mawdoo3\laravelTask\Models\SavedResult::all()]);
+        SavedResult::insert(array_values($filtered));
+        return view('task::saved_results', ['data' => SavedResult::all()]);
 
     }
 
@@ -87,13 +89,13 @@ class SearchController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  SavedResult  $result
+     * @return  redirect to another route
      */
     public function update(Request $request, $result)
     {
         $result->update(['comment' => $request->comment]);
-        return redirect()->route('searchResult');
+        return redirect()->route('savedResults');
 
     }
 
@@ -101,24 +103,25 @@ class SearchController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return  redirect to another route
      */
     public function destroy($result)
     {
         //
         $result->delete();
-        return redirect()->route('searchResult');
+        return redirect()->route('savedResults');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * redirect the specified function depend on action.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request  $request
+     * @return redirect to another function
      */
-    public function ActionResult(Request $request, $result)
+    public function chooseAction(Request $request, $id)
     {
-        $result = \mawdoo3\laravelTask\Models\SavedResult::find($result);
+        $result = SavedResult::find($id);
         return ($request->all()['action'] == 'Delete') ? $this->destroy($result) : $this->update($request, $result);
     }
 }

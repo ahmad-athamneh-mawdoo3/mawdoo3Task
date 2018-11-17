@@ -16,7 +16,7 @@
                     <td> {{ $item["description"] }}</td>
                     <td>{{ $item["link"] }}</td>
                     <td>
-                        <form method="post" class="form-horizontal" name="form{{$item['id']}}" action="{{ route('ActionResult',$item['id']) }}" >
+                        <form method="post" class="form-horizontal" name="form{{$item['id']}}" action="{{ route('chooseAction',$item['id']) }}" >
                             <textarea  id="comment" name="comment" value="{{$item['comment']}}" data-old="" >{{$item['comment']}}</textarea>
                             <input type="hidden" id="delId" name="delId" value="{{$item['id']}}" data-old="{{$item['title']}}" >
                             @csrf

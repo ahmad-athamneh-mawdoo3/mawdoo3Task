@@ -11,9 +11,10 @@
 |
 */
 Route::prefix('search')->namespace('mawdoo3\laravelTask\Controllers')->group(function () {
-    Route::get('/all', 'SearchController@index')->name('searchResult');
-    Route::get('/search/{searchWord?}', 'SearchController@getSearchView')->name('searchIndex');
-    Route::post('/', 'SearchController@setSearch')->name('searchPost');
-    Route::post('/{result}', 'SearchController@ActionResult')->name('ActionResult');
+    Route::get('/saved', 'SearchController@savedResults')->name('savedResults');
+    Route::get('/{searchWord?}', 'SearchController@search')->name('searchIndex');
+    Route::post('/', 'SearchController@save')->name('saveResults');
+    Route::post('/{id}', 'SearchController@chooseAction')->name('chooseAction');
+    
 });
 

@@ -5,32 +5,16 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __("Search") }}</div>
-
                 <div class="card-body">
                     <form method="get" action="{{ route('searchIndex') }}">
                         @csrf
-
                         <div class="form-group row">
-                            <label
-                                for="search"
-                                class="col-sm-4 col-form-label text-md-right"
-                                >{{ __("Search in Mawdoo3") }}</label
-                            >
-
+                            <label for="search" class="col-sm-4 col-form-label text-md-right">{{ __("Search in Mawdoo3") }}</label>
                             <div class="col-md-6">
-                                <input
-                                    id="search"
-                                    type="text"
-                                    class="form-control"
-                                    name="search"
-                                    value="{{ old('search') }}"
-                                    required
-                                    autofocus
-                                />
+                                <input id="search" type="text" class="form-control" name="search" value="{{ old('search') }}" required autofocus />
 
                             </div>
                         </div>
-
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -44,9 +28,9 @@
         </div>
     </div>
     @if(count($searchData)>0)
-        <form method="post" action="{{ route('searchPost') }}">
+        <form method="post" action="{{ route('saveResults') }}">
                 @csrf
-            <table  class="table">
+            <table class="table">
                 <thead>
                     <th>Select</th>
                     <th>title</th>
@@ -75,9 +59,7 @@
 
             <div class="form-group row mb-0">
                 <div class="col-md-8 offset-md-4">
-                    <button type="submit" class="btn btn-primary">
-                        {{ __("Save") }}
-                    </button>
+                    <button type="submit" class="btn btn-primary">{{ __("Save") }}</button>
                 </div>
             </div>
         </form>
@@ -105,7 +87,6 @@
                 comment.dataset.old=comment.value;
                 comment.value=comment.value;
             }
-            console.log(comment.value,comment.dataset.old);
         }
     </script>
  
