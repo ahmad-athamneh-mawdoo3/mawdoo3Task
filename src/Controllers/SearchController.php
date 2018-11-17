@@ -20,7 +20,6 @@ class SearchController extends Controller
         $key = config('customSearch.key'); 
         $searchWord =($searchWord==='')?$_GET['search']:$searchWord;
         $ch = curl_init("https://www.googleapis.com/customsearch/v1?q=$searchWord&cx=$cx&num=10&start=1&key=$key&alt=json");
-
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $server_output = curl_exec($ch);
         $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
