@@ -35,7 +35,7 @@
                     <th>Select</th>
                     <th>title</th>
                     <th>description</th>
-                    <th>formattedUrl</th>
+                    <th>Link</th>
                     <th>Comment</th>
                 </thead>
                 <tbody>

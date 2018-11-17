@@ -6,7 +6,7 @@
         <thead>
             <th>title</th>
             <th>description</th>
-            <th>formattedUrl</th>
+            <th>Link</th>
             <th>Comment & Action</th>
         </thead>
         <tbody>
