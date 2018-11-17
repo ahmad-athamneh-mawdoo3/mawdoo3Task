@@ -19,9 +19,8 @@
         }
     },
     "scripts": {
-        "post-autoload-dump": [
+        "post-package-install": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi",
             "@php artisan vendor:publish --provider='mawdoo3\\laravelTask\\TaskServiceProvider'"
         ]
     },
