@@ -41,6 +41,5 @@ class TaskInstall extends Command
         exec("php artisan migrate --path=/database/migrations/TaskInstall");
         $this->line("<info>Migrating:</info> Migrating to DB Done");
         $this->line(PHP_EOL."<info>All Done !!</info>");
-
     }
 }
