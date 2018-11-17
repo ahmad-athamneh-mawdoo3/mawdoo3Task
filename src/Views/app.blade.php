@@ -43,7 +43,7 @@
                                 <a class="nav-link" href="{{ route('searchIndex') }}">{{ __('Search') }}</a>
                             </li>
                             <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('searchResult') }}">{{ __('Result') }}</a>
+                                    <a class="nav-link" href="{{ route('savedResults') }}">{{ __('Result') }}</a>
                             </li>
 
                     </ul>
