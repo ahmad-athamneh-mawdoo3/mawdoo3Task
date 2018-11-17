@@ -45,7 +45,7 @@
     </div>
     <form method="post" action="{{ route('searchPost') }}">
             @csrf
-        <table>
+        <table  class="table">
             <thead>
                 <th>Select</th>
                 <th>title</th>
