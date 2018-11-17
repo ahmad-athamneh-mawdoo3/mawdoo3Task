@@ -35,13 +35,11 @@ class SearchController extends Controller
                     'formattedUrl'=>$value->formattedUrl,
                     'comment'=>'',
                     'isSelected'=>False,
-                    // 'data'=>$_GET,
                 ]);
             }
             return $data;
 
         }else{
-            dump($response);
             return [];
         }
     }

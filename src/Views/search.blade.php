@@ -43,43 +43,45 @@
             </div>
         </div>
     </div>
-    <form method="post" action="{{ route('searchPost') }}">
-            @csrf
-        <table  class="table">
-            <thead>
-                <th>Select</th>
-                <th>title</th>
-                <th>description</th>
-                <th>formattedUrl</th>
-                <th>Comment</th>
-            </thead>
-            <tbody>
-                @foreach($searchData as $k=>$item)
-                <tr>
-                    <td>
-                        <input type="checkbox" id="item[{{$k}}][isSelected]" name="item[{{$k}}][isSelected]" data-old="{{$item['title']}}" value="" onchange="change(this,{{$k}})"/>
-                        <input type="hidden" id="item[{{$k}}][title]" name="item[{{$k}}][title]" value="" data-old="{{$item['title']}}" />
-                        <input type="hidden" id="item[{{$k}}][description]" name="item[{{$k}}][description]" value="" data-old="{{$item['description']}}" />
-                        <input type="hidden" id="item[{{$k}}][link]" name="item[{{$k}}][link]" value="" data-old="{{$item['formattedUrl']}}" />
-                    </td>
-                    <td>{{$item["title"] }}</td>
-                    <td> {{ $item["description"] }}</td>
-                    <td>{{ $item["formattedUrl"] }}</td>
-                    <td><textarea  id="item[{{$k}}][comment]" name="item[{{$k}}][comment]" value="" data-old="" ></textarea></td>
-                </tr>
-                @endforeach
+    @if(count($searchData)>0)
+        <form method="post" action="{{ route('searchPost') }}">
+                @csrf
+            <table  class="table">
+                <thead>
+                    <th>Select</th>
+                    <th>title</th>
+                    <th>description</th>
+                    <th>formattedUrl</th>
+                    <th>Comment</th>
+                </thead>
+                <tbody>
+                    @foreach($searchData as $k=>$item)
+                    <tr>
+                        <td>
+                            <input type="checkbox" id="item[{{$k}}][isSelected]" name="item[{{$k}}][isSelected]" data-old="{{$item['title']}}" value="" onchange="change(this,{{$k}})"/>
+                            <input type="hidden" id="item[{{$k}}][title]" name="item[{{$k}}][title]" value="" data-old="{{$item['title']}}" />
+                            <input type="hidden" id="item[{{$k}}][description]" name="item[{{$k}}][description]" value="" data-old="{{$item['description']}}" />
+                            <input type="hidden" id="item[{{$k}}][link]" name="item[{{$k}}][link]" value="" data-old="{{$item['formattedUrl']}}" />
+                        </td>
+                        <td>{{$item["title"] }}</td>
+                        <td> {{ $item["description"] }}</td>
+                        <td>{{ $item["formattedUrl"] }}</td>
+                        <td><textarea  id="item[{{$k}}][comment]" name="item[{{$k}}][comment]" value="" data-old="" ></textarea></td>
+                    </tr>
+                    @endforeach
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
 
-        <div class="form-group row mb-0">
-            <div class="col-md-8 offset-md-4">
-                <button type="submit" class="btn btn-primary">
-                    {{ __("Save") }}
-                </button>
+            <div class="form-group row mb-0">
+                <div class="col-md-8 offset-md-4">
+                    <button type="submit" class="btn btn-primary">
+                        {{ __("Save") }}
+                    </button>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    @endforeach
     <script>
         var app = @json($searchData);
         var selected = {};
