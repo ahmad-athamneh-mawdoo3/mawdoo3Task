@@ -14,7 +14,7 @@
                 <tr>
                     <td>{{$item["title"] }}</td>
                     <td> {{ $item["description"] }}</td>
-                    <td>{{ $item["link"] }}</td>
+                    <td><a href="{{ $item['link'] }}">{{ $item["link"] }}</a> </td>
                     <td>
                         <form method="post" class="form-horizontal" name="form{{$item['id']}}" action="{{ route('chooseAction',$item['id']) }}" >
                             <textarea  id="comment" name="comment" value="{{$item['comment']}}" data-old="" >{{$item['comment']}}</textarea>

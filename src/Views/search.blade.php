@@ -49,7 +49,7 @@
                         </td>
                         <td>{{$item["title"] }}</td>
                         <td> {{ $item["description"] }}</td>
-                        <td>{{ $item["formattedUrl"] }}</td>
+                        <td><a href="{{ $item['formattedUrl'] }}">{{ $item["formattedUrl"] }}</a></td>
                         <td><textarea  id="item[{{$k}}][comment]" name="item[{{$k}}][comment]" value="" data-old="" ></textarea></td>
                     </tr>
                     @endforeach
