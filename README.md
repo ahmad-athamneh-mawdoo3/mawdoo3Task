@@ -22,6 +22,6 @@
 
 ## installation
 ##### to change cx and api key :
-       add sp_mawdoo3_laravel_cx and sp_mawdoo3_laravel_key to .env file or change default value in config/customSearch.php
+add sp_mawdoo3_laravel_cx and sp_mawdoo3_laravel_key to .env file or change default value in config/customSearch.php
 ## License
 This is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
