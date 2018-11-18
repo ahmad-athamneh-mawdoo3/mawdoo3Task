@@ -20,7 +20,7 @@
 ##### That's it !! :
        http://127.0.0.1:8000/search
 
-## installation
+## Configration
 ##### to change cx and api key :
 add sp_mawdoo3_laravel_cx and sp_mawdoo3_laravel_key to .env file or change default value in config/customSearch.php
 ## License
